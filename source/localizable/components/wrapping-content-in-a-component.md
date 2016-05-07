@@ -4,7 +4,7 @@ provided by other templates.
 For example, imagine we are building a `blog-post` component that we can
 use in our application to display a blog post:
 
-```app/templates/components/blog-post.js
+```app/templates/components/blog-post.hbs
 <h1>{{title}}</h1>
 <div class="body">{{body}}</div>
 ```
@@ -38,7 +38,7 @@ and tell Ember where the block content should be rendered using the
 `{{yield}}` helper. To update the example above, we'll first change the component's
 template:
 
-```app/templates/components/blog-post.js
+```app/templates/components/blog-post.hbs
 <h1>{{title}}</h1>
 <div class="body">{{yield}}</div>
 ```
@@ -76,7 +76,7 @@ We will give them the option to specify either `markdown` or `html`.
 Supporting different editing styles will require different body components to provide special validation and highlighting.
 To load a different body component based on editing style, you can yield the component using the component helper and hash helper.
 
-```app/templates/components/blog-post.js
+```app/templates/components/blog-post.hbs
 <h2>{{title}}</h2>
 <div class="body">{{yield (hash body=(component editStyle))}}</div>
 ```
@@ -93,7 +93,7 @@ Once yielded the data can be accessed within wrapped content by referencing the 
 Finally we want to share the model of the data a user fills out for the post within our `blog-post` and body components.
 To share the `postData` object with the new body component, you can add arguments to the component helper.
 
-```app/templates/components/blog-post.js
+```app/templates/components/blog-post.hbs
 <h2>{{title}}</h2>
 <div class="body">{{yield (hash body=(component editStyle postData=postData))}}</div>
 ```
